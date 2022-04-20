@@ -2,7 +2,7 @@
 
 
 
-## 1、HTML列表
+## 1、HTML列表：
 
 - ##### 无序列表：ol li
 
@@ -12,7 +12,7 @@
 
 
 
-## 2、HTML表格
+## 2、HTML表格：
 
 - ##### 表格元素：table | tr | td
 
@@ -26,7 +26,7 @@
 
 
 
-## 3、HTML表单元素
+## 3、HTML表单元素：
 
 - ##### 元素：form、input、textarea、select、option、botton、label
 
@@ -40,7 +40,7 @@
 
 
 
-## 4、认识emmet语法
+## 4、认识emmet语法：
 
 ##### ~HTML的emmit语法
 

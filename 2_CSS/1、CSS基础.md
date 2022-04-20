@@ -21,7 +21,7 @@
 
 
 
-## 4、CSS 样式规则顺序
+## 4、CSS 样式规则顺序：
 
 - ##### 定位（ position ） |  布局 ( Layout )
 - ##### 展示 （ Display ）|  可见（Visibility）
@@ -32,7 +32,7 @@
 
 
 
-## 5、CSS 文档查询
+## 5、CSS 文档查询：
 
 - ##### 官方文档： https://www.w3.org/TR/?tag=css
 
@@ -242,7 +242,7 @@
 
 
 
-## 16、行内非替换元素的注意事项
+## 16、行内非替换元素的注意事项：
 
 - ##### 效果不起作用属性：width、height、margin-top、margin-bottom
 
@@ -298,7 +298,7 @@
 
 
 
-## 20、CSS中利用border绘制图形
+## 20、CSS中利用border绘制图形：
 
 - ##### 利用border绘制三角形
 
@@ -306,7 +306,7 @@
 
 
 
-## 21、认识web字体（Web Fonts）
+## 21、认识web字体（Web Fonts）：
 
 - ##### 工作原理：当浏览器在操作系统中找不到指定字体时，通过@font-face{font-family:'取个字体名字',src:url(XXX)}
 
@@ -316,7 +316,7 @@
 
 
 
-## 22、认识字体图标
+## 22、认识字体图标：
 
 - ##### 阿里图标库：https://www.iconfont.cn/
 
@@ -324,7 +324,7 @@
 
 
 
-## 23、精灵图 | 雪碧图（CSS Sprite）
+## 23、精灵图 | 雪碧图（CSS Sprite）：
 
 - ##### 一种CSS图像合成技术，将各个小图片合成到一个图片上面，利用背景定位实现显示
 
@@ -336,13 +336,23 @@
 
 
 
-## 24、光标样式属性（cursor）
+## 24、光标样式属性（cursor）：
 
 - ##### cursor:auto | default | pointer | text | none
 
 
 
-## 25、CSS属性vertical-align：
+## 25、CSS属性transform 形变：
+
+- ##### 常见的函数transform function有：平移（translate（x,y）、缩放（scale（x，y））、旋转（rotate（deg））、倾斜（skew（deg，deg））
+
+- ##### translate设置百分比时是相对于自身、只设置一个方向则可以使用translateX、translateY
+
+- 
+
+
+
+## 26、CSS属性vertical-align：
 
 - 
 

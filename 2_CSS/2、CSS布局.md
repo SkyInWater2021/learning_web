@@ -6,7 +6,7 @@
 
 
 
-## 1、position属性
+## 1、position属性：
 
 - ##### 定位元素：position: static | relative | absolute | fixed | sticky（相对于滚动祖先的滚动视口）
 
@@ -18,7 +18,7 @@
 
 
 
-## 2、z-index 属性
+## 2、z-index 属性：
 
 
 
@@ -26,7 +26,7 @@
 
 
 
-## 1、float属性
+## 1、float属性：
 
 - ##### 指定一个元素应沿其容器的左侧或右侧放置，允许文本和内联元素环绕它
 
@@ -54,7 +54,7 @@
 
 
 
-## 1、flex概念
+## 1、flex概念：
 
 - ##### display: flex | inline-flex
 
@@ -64,7 +64,7 @@
 
 
 
-## 2、flex属性
+## 2、flex属性：
 
 - ##### flex-direction: row(默认) | column | row-reverse | column-reverse
 
