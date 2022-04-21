@@ -348,11 +348,54 @@
 
 - ##### translate设置百分比时是相对于自身、只设置一个方向则可以使用translateX、translateY
 
-- 
+- ##### 利用translate实现垂直居中
+
+- ##### rotate(）度数为整数表示顺时针旋转，负数表示逆时针
+
+- ##### rotate支持其他单位：度（deg）、百分度（gradians）、弧度（radians）、圈数（truns）
+
+- ##### trnasform-origin：形变的原点，设置一个值表示X，两个值表示X Y ，值必须是<length>/<percentage>或者 left、right、cneter、top、bottom关键字中的一个
+
+- ##### 倾斜：skew => 一个值表示x轴倾斜、两个值表示x轴和y轴的倾斜，正数为顺时针
+
+##### ~tansform简写：
+
+- ##### 多个函数之间以空格分隔
 
 
 
-## 26、CSS属性vertical-align：
+## 26、CSS过渡动画transition：
 
-- 
+- ##### transition属性是transition-property、transition-duration、transition-timing-function和transition-delay的简写属性
 
+
+
+## 27、CSS动画Animation：
+
+- ##### 使用帧动画定义动画：@keyframes
+
+- ##### animation-name、animation-duration、animation-timing-function、animation-delay
+
+- ##### animation-iteration、animation-direction、animation-fill-mode：backwords/forwards
+
+- ##### animation-play-state：paused
+
+- ##### animation简写属性：moveAnim 3s linear 1s 2 normal forwards	
+
+
+
+## 28、CSS属性vertical-align：
+
+- ##### 行盒概念（inline box）：将当前行所有的内容包裹在一起
+
+- ##### 行盒中内容默认基线对齐，解决底部默认间隔的方法：vertical-align设置为top/bottom/middle、设置display：block
+
+- ##### 当一个inline box中有文本时，它的基线不再是底部，基线变成了最后一行文本的基线
+
+- ##### vertical-align的其他值：<percentage>/<length>
+
+
+
+## 29、代码规范：
+
+- 参考京东团队：凹凸实验室：https://guide.auto.io/

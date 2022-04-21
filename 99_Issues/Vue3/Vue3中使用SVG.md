@@ -2,7 +2,7 @@
 
 
 
-## 1、创建SVG组件库
+## 一、创建SVG组件库
 
 - ##### 创建SvgIcon文件夹
 
@@ -69,7 +69,7 @@
 
   
 
-## 2、对SVG组件库进行注册
+## 二、对SVG组件库进行注册
 
 
 
@@ -93,7 +93,7 @@ registerSvg(app) // 注册
 
 
 
-## 3、配置loader（重点）
+## 三、配置loader（重点）
 
 - ##### 安装loader：npm install svg-sprite-loader -D
 
@@ -126,7 +126,7 @@ registerSvg(app) // 注册
   
   
 
-## 4、页面中使用
+## 四、页面中使用
 
 ```vue
 // svg组件名: name.svg 中的name

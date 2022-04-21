@@ -4,7 +4,7 @@
 
 
 
-## 1、安装element-plus：
+## 一、安装element-plus：
 
 ```shell
 npm install element-plus --save
@@ -12,7 +12,7 @@ npm install element-plus --save
 
 
 
-## 2、安装自动导入插件unplugin-vue-components` 和 `unplugin-auto-import：
+## 二、安装自动导入插件unplugin-vue-components` 和 `unplugin-auto-import：
 
 ```shell
 npm install -D unplugin-vue-components unplugin-auto-import
@@ -20,7 +20,7 @@ npm install -D unplugin-vue-components unplugin-auto-import
 
 
 
-## 3、webpack配置
+## 三、webpack配置
 
 ```shell
 // vue.config.js
@@ -61,7 +61,7 @@ import 'element-plus/es/components/message/style/css'
 
 
 
-## 4、编写全局注册组件的方法：
+## 四、编写全局注册组件的方法：
 
 ```js
 import { ... } from 'element-plus'
