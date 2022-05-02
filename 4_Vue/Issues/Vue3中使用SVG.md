@@ -2,13 +2,13 @@
 
 
 
-## 一、创建SVG组件库
+## 1、创建SVG组件库
 
-- ##### 创建SvgIcon文件夹
+- 创建SvgIcon文件夹
 
-- ##### 在SvgIcon文件夹下创建文件 svg存放.svg文件
+- 在SvgIcon文件夹下创建文件 svg存放.svg文件
 
-- ##### 在SvgIcon文件夹下创建文件index.js
+- 在SvgIcon文件夹下创建文件index.js
 
   ```js
   // index.js 目的是将所有.svg文件按照模块引入
@@ -18,7 +18,7 @@
   
   ```
 
-- ##### 在SvgIcon文件夹下创建文件index.vue
+- 在SvgIcon文件夹下创建文件index.vue
 
   ```vue
   // index.vue svg组件
@@ -69,9 +69,7 @@
 
   
 
-## 二、对SVG组件库进行注册
-
-
+## 2、对SVG组件库进行注册
 
 ```js
 // 编写注册组件的方法(scr下新建global文件夹，在global文件下新建index.js和register-svg.js)
@@ -93,11 +91,11 @@ registerSvg(app) // 注册
 
 
 
-## 三、配置loader（重点）
+## 3、配置loader（重点）
 
-- ##### 安装loader：npm install svg-sprite-loader -D
+- 安装loader：npm install svg-sprite-loader -D
 
-- ##### 配置vue.config.js
+- 配置vue.config.js
 
   ```js
   // "svg-sprite-loader": "^6.0.11"
@@ -126,7 +124,7 @@ registerSvg(app) // 注册
   
   
 
-## 四、页面中使用
+## 4、页面中使用
 
 ```vue
 // svg组件名: name.svg 中的name

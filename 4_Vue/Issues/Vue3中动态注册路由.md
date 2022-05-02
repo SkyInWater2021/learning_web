@@ -2,13 +2,13 @@
 
 
 
-## 一、本地编写好映射关系
+## 1、本地编写好映射关系
 
-- ##### router文件夹下编写好所有的路由对象
+- router文件夹下编写好所有的路由对象
 
-- ##### views文件夹下编写好所有的页面组件
+- views文件夹下编写好所有的页面组件
 
-- ##### router对象中component与views中的页面组件对应
+- router对象中component与views中的页面组件对应
 
 ```js
 const cpnName = () => import('@/views/userMenus/XXX/XXX.vue')
@@ -27,7 +27,7 @@ export default {
 
 
 
-## 二、编写匹配路由方法
+## 2、编写匹配路由方法
 
 ```js
 // 在utils中实现一个动态注册路由的方法
