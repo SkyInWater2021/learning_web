@@ -63,4 +63,133 @@
 
 
 
-4、
+## 4、Chrome 调试工具
+
+
+
+## 5、JavaScript 语句
+
+- 语句（statements）：向浏览器发出的指令，通常表示一个操作或行为（Action）
+- 一条语句通常会在最后添加一个分号（semicolon）表示语句结束
+- 当存在换行符（line break）时，大多数情况可以省略分号，JavaScript 将换行符理解为“隐式”的分号
+
+
+
+## 6、JavaScript 中的注释	
+
+```js
+// 单行注释
+/*多行注释*/
+/**
+* 文档注释
+*/
+```
+
+
+
+## 7、JavaScript 中的变量
+
+- 变量：变化数据的记录，相当于存放数据的容器
+- 变量声明：通过关键字 `var`
+- 变量命名规范
+  - 第一个字符必须是`$`、`_`、字母开头
+  - 其他字符可以使字母、数字、下划线、美元符号
+  - 不能使用关键字和保留字命名：
+  - 关键字和保留字：https://developer.mozilla.org/zh-CN/docs/web/javascript/reference/lexical_grammar
+
+## 
+
+## 8、JavaScript 中的数据类型
+
+- 8 中基本数据类型（7 种原始类型，一种复杂类型）
+  - Number
+  - String
+  - Object
+  - Boolea
+  - Undefined
+  - Null
+  - Symbol
+  - Bigint
+- 操作符：`typeof` 可以获取到变量的类型，typeof() 并不是代表一个函数，而是将小括号里面当成一个整体
+
+
+
+## 9、字符串中的转义字符
+
+- `\'`、`\"`、`\\`、`\n`、`\r`、`\t`、`\b` 等等
+
+
+
+## 10、JavaScript 中的操作符
+
+- `+` `-` `*` `/` `%` `** `等等...
+- `++` `--`
+- 运算符优先级：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+- 比较运算符
+
+- == 和 === 的区别
+
+
+
+## 11、JavaScript 分支语句
+
+- 程序的执行顺序
+- 代码块的理解
+- 条件判断
+  - if 语句
+  - switch 语句
+  - 三元运算符
+  - 逻辑运算符
+
+
+
+## 12、JavaScript 循环语句（遍历(traversal)、迭代(iteration)）
+
+- 循环语句：while、do while、for
+- 循环控制：break、continue
+
+
+
+## 13、认识 JavScript 中的函数
+
+- 程序中 foo、bar、baz 这些名词的由来，目前已经成为了编程术语的一部分
+  - 一种说法来自Digtal（迪吉多，数字设备公司，成立于1957 年的美国电脑公司）的说明手册流行起来的
+  - 一种说法来自电子学中的反转信号 foo
+  - 一种说法是应为 foo 出现在了一个漫画当中，在漫画中代表"好运",于中文“福”发音类似，所以流行起来的
+- 函数的声明和调用
+  - 函数的命名规范：
+  - 函数的参数
+  - 函数的返回值
+  - 函数中的 arguments（类数组，是对象类型）
+  - 函数中的变量
+  - 函数的递归使用
+- 函数表达式
+- 头等函数的特点
+  - 可以赋值给变量
+  - 让函数在变量中传递
+  - 可以作为另一个函数的参数和返回值
+  - 等等...
+- 回调函数( callback function )
+- 匿名函数( anonymous )
+- 立即执行函数
+
+
+
+## 14、对象
+
+
+
+## 15、数组
+
+
+
+## 16、堆内存和栈内存
+
+
+
+## 17、认识构造函数
+
+
+
+## 18、原始类型的包装类
+
