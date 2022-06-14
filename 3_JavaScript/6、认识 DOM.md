@@ -78,10 +78,8 @@
     Node.COMMENT_NODE  8  一个 comment 节点
     Node.DOCUMENT_NODE  9  一个Document 节点
     Node.DOCUMENT_TYPE_NODE  10   描述文档类型的节点
-    
-  
   ```
-
+  
   其他类型可以查看MDN文档: https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType
 
   
@@ -187,3 +185,135 @@
 
 ## 7、DOM 元素的大小、滚动、坐标
 
+- 元素的大小、滚动
+
+  ```js
+  	clientWidth: contentWidth + padding(不包含滚动条)
+  	clientHeight: contentHeight + padiing
+  	clientTop: border-top 的高度
+    clientLeft: border-left 的宽度
+    
+    offsetWidth: 元素完整的宽度
+    offsetHeight: 元素完整的高度
+    offsetTop: 距离父元素的 y
+    offsetLeft：距离父元素的 x
+    
+    scrollHeight: 整个可滚动区域的高度
+    scrollTop：滚动部分的高度
+  	
+  ```
+
+- window 的大小、滚动
+
+  ```js
+  	innerWidth | innerHeight: 获取 window 窗口的宽度和高度（包含滚动条）
+    outerWidth | outerHeight: 获取 window 窗口的整个宽度和高度（包含调试工具、工具栏）
+    documentElement.clientHeight | documentElement.clientWdith 获取 html 元素的宽度和高度(不包含滚动条)
+  
+  // window 的滚动位置
+  	scrollX： X轴滚动的位置（别名 pageXOffset）
+    scrollY: Y轴滚动的位置（别名 pageYOffset）
+    
+    scrollBy(x,y) 将页面滚动至相对于当前位置的(x,y)
+  	scrollTo(x,y) 将页面滚动至(pageX,pageY),绝对坐标
+  ```
+
+
+
+## 8、DOM 中的事件处理
+
+- 事件监听方式
+
+  - 在 `script` 中直接监听
+
+  - DOM 属性，通过元素的 on 来监听事件
+
+  - 通过 EventTarget 中的 addEventListener 来监听
+
+- 常见的事件列表
+
+  - 鼠标事件：click、mouseover、mouseout、mousemove、mousedown、mouseout
+  - 键盘事件：keydown、keyup
+  - 表单(form)元素事件：submit、focus
+  - Docuement 事件：DOMContentLoaded => 当HTML 的加载和处理均完成，DOM 被完全构建完成时
+
+  - CSS 事件：transitionend =>当一个CSS 动画完成时
+
+- 认识事件流
+
+  - 事件处理中的 this = event.target  这是因为在浏览器内部，调用event handler是绑定到当前的target上的
+  - EventTarget类中常见的方法
+    - addEventListener
+    - removeEventListener
+    - dispatchEvent  派发某个事件到EventTarget上
+      - 例如：window.dispatchEvent(new Event('heyuan'))  向 window对象派发了一个 heyuan 事件
+
+- 事件冒泡和时间捕获
+
+  - el.addEventListener("click", fn, true) // 第三个参数为 true 时监听捕获的过程
+
+- 事件对象中常见的属性
+
+  - type：事件类型
+  - target：当前事件发生的元素
+  - currentTarget：当前处理事件的元素
+  - eventPhase：事件所处的阶段  捕获：1  当前事件：2   冒泡 3
+  - offsetX、offsetY：事件发生在元素内的位置
+  - clientX、clientY：事件发生在客户端的位置
+  - pageX、pageY：事件发生在客户端相对于 document 的位置
+  - screenX、screenY：事件发生相对于屏幕的位置
+
+- 阻止默认行为
+
+  - event.eventDefault() 阻止事件默认行为
+  - event.stopPropagation 阻止事件传递（冒泡和捕获）
+
+- 事件委托
+
+- 常见的鼠标事件
+
+  ![image-20220601200953826](https://tva1.sinaimg.cn/large/e6c9d24ely1h2t03g67yqj21n00t611g.jpg)
+
+  - mouseenter | mouseleave 和 mouseover | mouseout 的区别
+
+- 常见的键盘事件
+
+  - onkeydown  发生在键盘按键按下的时候
+
+  - onkeypress  发生在文本输入的时候
+
+  - onkeyup  发生在文本输入完成的时候
+
+  - 可以通过 event 对的 code | key 来区分输入的某个键
+
+- 常见的表单事件
+
+  ![image-20220601222414040](https://tva1.sinaimg.cn/large/e6c9d24ely1h2t3z54zzlj21n00lun1f.jpg)
+
+
+- 文档加载事件
+  - DOMContentLoaded：浏览器已经完全加载了HTML，并构建了DOM 树，但外部资源可能没有完全加载
+  - load：包括外部资源在内全部加载完毕
+- 事件类型：https://developer.mozilla.org/zh-CN/docs/Web/Events
+
+
+
+## 9、认识定时器
+
+- setTimeout 语法如下
+
+  ```js
+  let timeId = setTimeout(fn,[delay],[arg1],[arg2],...)
+  fn: 想要执行的函数
+  delay：想要延迟的毫秒数
+  arg1、arg2: 传入函数的参数列表
+  
+  // 清除定时器
+  clearTimeout(timeId)
+  ```
+
+- setInterval 同 setTimeout 语法相同，不同的是 setInterval 是周期性的重复执行函数
+
+  
+
+  

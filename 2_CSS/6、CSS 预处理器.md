@@ -73,7 +73,7 @@
 - 混入（mixin）和映射（map）
 
   ```less
-  // 混入：讲编写好的代码插入到对应的位置，注意混入和继承两者的区别
+  // 混入：将编写好的代码插入到对应的位置，注意混入和继承两者的区别
   .single_ellipsis {
     white-space: nowrap;
     text-overflow: ellipsis;

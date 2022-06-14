@@ -50,7 +50,12 @@
 - JavaScript 的编写方式
   - HTML 内部
   - Script 标签中
-- 浏览器禁止 JavaScript ：`noscript`标签 <noscript>您的浏览器不支持 JavaScript</noscript>
+- 浏览器禁止 JavaScript
+
+  ```js
+  // noscript 标签  
+  <noscript>您的浏览器不支持 JavaScript</noscript>
+  ```
 
 
 
@@ -60,6 +65,7 @@
 - 浏览器控制台查看：console.log()
 - 浏览器页面查看：document.write()
 - 浏览器接受用户输入：prompt()
+- ...
 
 
 
@@ -77,13 +83,9 @@
 
 ## 6、JavaScript 中的注释	
 
-```js
-// 单行注释
-/*多行注释*/
-/**
-* 文档注释
-*/
-```
+- 单行注释：
+- 多行注释：
+- 文档注释：
 
 
 
@@ -97,7 +99,7 @@
   - 不能使用关键字和保留字命名：
   - 关键字和保留字：https://developer.mozilla.org/zh-CN/docs/web/javascript/reference/lexical_grammar
 
-## 
+
 
 ## 8、JavaScript 中的数据类型
 
