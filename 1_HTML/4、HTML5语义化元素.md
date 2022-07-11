@@ -37,7 +37,7 @@
 - placehodler：输入框的占位
 - multiple：开启多选
 - autofocus：自动聚焦
-- type值得扩展
+- type值的扩展
   - date
   - time
   - number

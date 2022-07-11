@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. 显式绑定中指定 this 为 null 或者 undefinde 时,使用默认绑定规则
+      function foo() {
+        console.log(this);
+      }
+
+      foo.call(null); // 严格模式: null 非严格模式: Window
+      foo.call(undefined); // 严格模式: undefined 非严格模式: Window
+
+      // 2. 创建一个函数的间接引用, 这种情况使用默认绑定规则
+      const obj_1 = {
+        name: "obj_1",
+        foo,
+      };
+      const obj_2 = {
+        name: "obj_2",
+      };
+      obj_1.foo(); // {name: 'obj_1', foo:f}
+      // TIP: 以小括号中括号等开始的代码一定要注意分号的使用,在上一行代码结束加上分号,或者在代码开始前加上分号
+      (obj_2.foo = obj_1.foo)(); // 严格模式下: undefined 非严格模式下: Window
+
+      // TIP: 关于箭头函数(Arrow Function)
+      // 1 普通函数中都会有 this 标识符, 但是在箭头函数中压根没有 this
+      // 2 箭头函数不会绑定 this、arguments 属性
+      // 3 箭头函数不能作为构造函数来使用(不能和 new 一起使用, 会抛出错误)
+      // 4 箭头函数的编写优化:
+      //  4.1 只有一个参数时,小括号可以省略
+      //  4.2 如果函数执行体只有一行代码,那么大括号可以省略,且这行代码的返回值作为整个函数的返回值
+      //  4.3 如果函数执行体只有返回一个对象, 那么需要给这个对象加上()
+
+      // 3. 箭头函数是根据外层作用域来决定 this 的绑定值的
+      // TIP: let 和 const 声明的变量不在顶层对象中,而在 script 块儿级作用域中
+      var flag = "varGlobal";
+      const const_flag = "constGlobal";
+      window.windowFlag = "windowFlag";
+      console.log(window.flag); // varGlobal
+      console.log(window.const_flag); // undefined
+      console.log(window.windowFlag); // windowFlag
+
+      const bar = () => {
+        console.log(this.flag);
+      };
+
+      const obj_3 = {
+        flag: "obj_2",
+        bar,
+        baz: function () {
+          const flag = "bazFlag";
+          const foo = () => {
+            console.log(this.flag);
+          };
+          return foo;
+        },
+      };
+
+      bar(); // varGlobal
+      bar.call({ flag: "callFlag" }); // varGlobal
+      obj_3.bar(); //varGlobal
+
+      const fn1 = obj_3.baz();
+      fn1(); // obj_3  foo -> baz
+      fn1.call({ flag: "callFlag" }); // obj_3
+    </script>
+  </body>
+</html>

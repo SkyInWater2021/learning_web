@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      // call
+      // 第一个参数: 绑定this
+      // 参数列表: 后续的参数以多参数的形式传递, 会作为实参
+
+      // apply
+      // 第一个参数: 绑定this
+      // 第二个参数: 传入额外的实参, 以数组的形式
+
+      function foo(...args) {
+        console.log("foo", this, ...args);
+      }
+
+      foo(); // window
+
+      foo.call(123, 1, 2, 3); // Number(123), 1 2 3
+      foo.apply("apply", [1, 2, 3]); // String(apply), 1 2 3
+
+      foo.call({ name: "apply", age: 18 }); // {apply:'apply'}
+      foo.apply({}); // {}
+
+      // bind 方法创建了一个新的绑定函数(BF, bound function)
+      // 绑定函数是一个 exotic function object(怪异函数对象，ECMAScript 2015 中的术语)
+      // 在 bind() 被调用时，这个新函数的 this 被指定为 bind() 的第一个参数，而其余参数将作为新函数的参数，供调用时使用
+      // MDN 文档解释:
+      // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
+
+      const obj = {
+        name: "bind",
+      };
+      const bar = foo.bind(obj, 1, 2, 3);
+      const baz = foo.bind(123, 1, 2, 3);
+
+      bar(); // { name: "bind" }, 1, 2, 3
+      bar(4, 5, 6); // { name: "bind" }, 1, 2, 3, 4, 5, 6
+
+      baz(); // Number(123), 1, 2, 3
+
+      // 显示绑定中的细节
+      // 在非严格模式下，显示指定的 this 如果一个基本类型,且该基本类型有对应的包装类，则会自动转换为该包装类型
+      // 如果没有该基本类型没有对应的包装类型,则会指向 window
+      // 在严格模式下,则不会进行包装类型的转换, 传入的 this 参数是啥,this 指向就是啥
+
+      // 非严格模式
+      foo.call(undefined, [1, 2, 3]); // Window, 1 2 3
+      foo.apply(null, [1, 2, 3]); // Window, 1 2 3
+      foo.call(123); // Number(123)
+      // 严格模式
+      foo.call(undefined, [1, 2, 3]); // undefined, 1 2 3
+      foo.apply(null, [1, 2, 3]); // null, 1 2 3
+      foo.call(123); // 123
+
+      // 关于包装类
+      const num = new Number(1);
+      const str = new String("123");
+      const flag = new Boolean(true);
+      console.log(num, typeof num, "--number"); // Number(1) 'object' '--number'
+      console.log(str, typeof str, "--string"); // String('123') 'object' '--string'
+      console.log(flag, typeof flag, "--boolean"); // Boolean(true) 'object' '--boolean'
+
+      // 对象
+      const newObj = new Object();
+      console.log(newObj, typeof newObj, "--object"); // {} 'object' '--object'
+    </script>
+  </body>
+</html>

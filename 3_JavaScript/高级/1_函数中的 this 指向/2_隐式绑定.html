@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // "use strict";
+
+      function foo() {
+        console.log("foo", this);
+      }
+      const obj = {
+        name: "obj",
+        bar: foo,
+        baz: function () {
+          console.log("baz", this);
+        },
+      };
+
+      const obj2 = {
+        name: "obj2",
+        baz: obj.baz,
+        obj,
+      };
+
+      obj.bar(); // obj
+      obj.baz(); // obj
+
+      obj2.obj.bar(); // obj
+      obj2.obj.baz(); // obj
+      obj2.baz(); // obj2
+    </script>
+  </body>
+</html>

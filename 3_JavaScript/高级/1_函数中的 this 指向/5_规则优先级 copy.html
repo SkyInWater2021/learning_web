@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      function foo() {
+        console.log("foo", this);
+      }
+
+      // 1. 显式绑定高于隐式绑定
+      const obj_0 = {
+        name: "obj1",
+        foo: foo,
+      };
+      obj_0.foo.call("callThis"); // callThis
+
+      // 2.bind 绑定高于隐式绑定
+      const bar = foo.bind("BindThis");
+      const obj_1 = {
+        name: "obj_1",
+        bar,
+      };
+      obj_1.bar(); // BindThis
+
+      // 3. bind 绑定高于 call 和 apply 绑定
+      bar.call("callThis"); // bindThis
+      bar.apply("callThis"); // bindThis
+
+      // 4. new 绑定高于隐式绑定
+      const obj_2 = {
+        name: "obj_2",
+        obj_2_foo: function () {
+          console.log("obj_2_foo", this, this === obj_2);
+        },
+      };
+      new obj_2.obj_2_foo(); // obj_2_foo obj_2_foo{} false
+
+      // 4. new 绑定高于显式绑定(new 绑定不能和 call 和 apply 绑定一起使用)
+      new bar(); // foo foo{}
+    </script>
+  </body>
+</html>

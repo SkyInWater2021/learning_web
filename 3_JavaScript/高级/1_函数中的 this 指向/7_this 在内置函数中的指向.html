@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+      background-color: skyblue;
+    }
+  </style>
+  <body>
+    <div id="divId" class="box"></div>
+
+    <script>
+      // "use strict";
+      var flag = "varGlobal";
+      // 1. onclick 中this 绑定规则的推测  => 推测为 默认绑定
+      const box = document.getElementById("divId");
+      box.onclick = () => {
+        const flag = "boxGlobal";
+        console.log(this, this.flag); // Window varGlobal
+      };
+      // box.onclick = function () {
+      //   const flag = "boxGlobal";
+      //   console.log(this, this.flag); // box元素  undefined
+      // };
+
+      box.onclick.call({ flag: "callThis" }); // { flag: "callThis"} callThis
+
+      // 2.setTimeout 中 this 绑定规则的推测  => 推测是通过 apply 或 call 显式绑定的 Window
+      const obj = {
+        flag: "objFlag",
+        foo: function () {
+          console.log(this, this.flag);
+        },
+      };
+      const baz = obj.foo.bind({ flag: "bindFlag" });
+      const fn = new baz();
+      setTimeout(obj.foo); // Window  严格模式下也为 Window
+      setTimeout(baz); // bindFlag
+
+      // 3. forEach 中 this 绑定规则的推测  => 推测是通过 apply 或 call 显式绑定的全局 this
+      // 且第二个参数是通过call 或者 apply 来显示绑定的
+      const obj_2 = {
+        flag: "obj2Flag",
+        foo: function (item) {
+          console.log(item, this);
+        },
+        baz: (item) => {
+          console.log(item, this);
+        },
+      };
+      const fn1 = obj_2.foo.bind("bindThis");
+      [1].forEach(obj_2.foo); // Window  严格模式下为 undefined
+      [1].forEach(obj_2.baz); // Window  严格模式下为 Window
+      [1].forEach(fn1); // String(BindThis)
+      [1].forEach(obj_2.foo, "customThis"); // String(customThis)
+      [1].forEach(obj_2.baz, "customThis"); // Window  严格模式下为 Window
+      [1].forEach(fn1, "customThis"); // String(BindThis)
+    </script>
+  </body>
+</html>
